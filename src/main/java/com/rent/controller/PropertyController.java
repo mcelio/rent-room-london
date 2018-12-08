@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- * All operations with a driver will be routed by this controller.
+ * All operations with a property will be routed by this controller.
  * <p/>
  */
 @RestController

@@ -19,6 +19,12 @@ The project is based on a small web service which uses the following technologie
 #Running the application:
 
 mvn spring-boot:run -Dserver.port=8081
+gradle bootRun -Dserver.port=8081
+
+JVM options
+export JAVA_OPTS=-Xmx1024m
+
+
 
 
 #Frontend

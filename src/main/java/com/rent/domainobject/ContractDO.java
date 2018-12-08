@@ -25,10 +25,12 @@ public class ContractDO {
 
     @Column(nullable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @NotNull(message = "Start date can not be null!")
     private ZonedDateTime startDate = ZonedDateTime.now();
 
     @Column(nullable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @NotNull(message = "End date can not be null!")
     private ZonedDateTime endDate = ZonedDateTime.now();
 
     @Enumerated(EnumType.STRING)
@@ -36,18 +38,23 @@ public class ContractDO {
     private PaymentType paymentType;
 
     @Column(nullable = false)
+    @NotNull(message = "Advance number can not be null!")
     private Integer advanceNumber;
 
     @Column(nullable = false)
+    @NotNull(message = "Advance can not be null!")
     private BigDecimal advance;
 
     @Column(nullable = false)
+    @NotNull(message = "Deposit number can not be null!")
     private Integer depositNumber;
 
     @Column(nullable = false)
+    @NotNull(message = "Deposit can not be null!")
     private BigDecimal deposit;
 
     @Column(nullable = false)
+    @NotNull(message = "Amount can not be null!")
     private BigDecimal amount;
 
     @Column(nullable = false)
@@ -55,10 +62,12 @@ public class ContractDO {
 
     @OneToOne
     @JoinColumn(name = "person_id")
+    @NotNull(message = "Person can not be null!")
     private PersonDO person;
 
     @OneToOne
     @JoinColumn(name = "property_id")
+    @NotNull(message = "Property can not be null!")
     private PropertyDO property;
 
     public ContractDO() {

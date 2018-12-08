@@ -1,8 +1,6 @@
 package com.rent.search;
 
 import com.rent.domainobject.PersonDO;
-import com.rent.domainobject.StoreDO;
-import com.rent.domainvalue.StoreType;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
@@ -26,7 +24,7 @@ public class PersonDOSpecification implements Specification<PersonDO> {
       CriteriaBuilder builder) {
     String operation = criteria.getOperation();
     String field = criteria.getKey();
-    Join<PersonDO, StoreDO> storePerson = root.join("person");
+    Join<PersonDO, PersonDO> storePerson = root.join("person");
     if (NAME.equals(field)) {
       return builder.like(storePerson.get(criteria.getKey()), "%" + criteria.getValue() + "%");
     } else if (EMAIL.equals(field)) {

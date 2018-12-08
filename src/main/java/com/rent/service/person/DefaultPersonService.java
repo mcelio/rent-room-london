@@ -1,7 +1,6 @@
 package com.rent.service.person;
 
 import com.rent.dataaccessobject.PersonRepository;
-import com.rent.dataaccessobject.StoreRepository;
 import com.rent.domainobject.PersonDO;
 import com.rent.exception.ConstraintsViolationException;
 import com.rent.exception.EntityNotFoundException;
@@ -12,8 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Collection;
 
 /**
  * Service to encapsulate the link between DAO and controller and to have business logic for some
@@ -27,8 +24,7 @@ public class DefaultPersonService implements PersonService {
 
   private final PersonRepository personRepository;
 
-  public DefaultPersonService(final PersonRepository personRepository,
-      final StoreRepository storeRepository) {
+  public DefaultPersonService(final PersonRepository personRepository) {
     this.personRepository = personRepository;
   }
 

@@ -1,7 +1,6 @@
 package com.rent.controller;
 
 import com.rent.controller.mapper.PersonMapper;
-import com.rent.controller.mapper.StoreMapper;
 import com.rent.datatransferobject.PersonDTO;
 import com.rent.domainobject.PersonDO;
 import com.rent.exception.ConstraintsViolationException;
@@ -24,7 +23,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- * All operations with a driver will be routed by this controller.
+ * All operations with a person will be routed by this controller.
  * <p/>
  */
 @RestController

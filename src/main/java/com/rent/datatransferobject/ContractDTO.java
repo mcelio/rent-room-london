@@ -3,12 +3,8 @@ package com.rent.datatransferobject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.rent.domainobject.PersonDO;
-import com.rent.domainobject.PropertyDO;
 import com.rent.domainvalue.PaymentType;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -45,11 +41,11 @@ public class ContractDTO {
 
     private Boolean deleted = false;
 
-    @NotNull(message = "Person can not be null!")
-    private Long personId;
+    @NotNull(message = "Contract can not be null!")
+    private Long person;
 
     @NotNull(message = "Property can not be null!")
-    private Long propertyId;
+    private Long property;
 
     public ContractDTO() {
     }
@@ -70,8 +66,8 @@ public class ContractDTO {
         this.property = property;
     }
 
-    public static PersonDTOBuilder newBuilder() {
-        return new PersonDTOBuilder();
+    public static ContractDTOBuilder newBuilder() {
+        return new ContractDTOBuilder();
     }
 
     @JsonProperty
@@ -155,23 +151,31 @@ public class ContractDTO {
         this.deleted = deleted;
     }
 
-    public Long getPerson() {
-        return personId;
+    public Long getContract() {
+        return person;
     }
 
-    public void setPerson(Long personId) {
-        this.personId = personId;
+    public void setContract(Long person) {
+        this.person = person;
     }
 
     public Long getProperty() {
-        return propertyId;
+        return property;
     }
 
-    public void setProperty(Long propertyId) {
-        this.propertyId = propertyId;
+    public void setProperty(Long property) {
+        this.property = property;
     }
 
-    public static class PersonDTOBuilder {
+    public Long getPerson() {
+        return person;
+    }
+
+    public void setPerson(Long person) {
+        this.person = person;
+    }
+
+    public static class ContractDTOBuilder {
 
         private Long id;
         private ZonedDateTime startDate;
@@ -179,39 +183,71 @@ public class ContractDTO {
         private PaymentType paymentType;
         private Integer advanceNumber;
         private BigDecimal advance;
-        private BigDecimal depositNumber;
-        private Integer deposit;
+        private Integer depositNumber;
+        private BigDecimal deposit;
         private BigDecimal amount;
-        private  Long personId;
-        private  Long propertyId;
+        private Long person;
+        private Long property;
 
-        public PersonDTOBuilder setId(Long id) {
+        public ContractDTOBuilder setId(Long id) {
             this.id = id;
             return this;
         }
 
-        public PersonDTOBuilder setName(String name) {
-            this.name = name;
+        public ContractDTOBuilder setStartDate(ZonedDateTime startDate) {
+            this.startDate = startDate;
             return this;
         }
 
-        public PersonDTOBuilder setPassportNumber(String passportNumber) {
-            this.passportNumber = passportNumber;
+        public ContractDTOBuilder setEndDate(ZonedDateTime endDate) {
+            this.endDate = endDate;
             return this;
         }
 
-        public PersonDTOBuilder setEmail(String email) {
-            this.email = email;
+        public ContractDTOBuilder setPaymentType(PaymentType paymentType) {
+            this.paymentType = paymentType;
             return this;
         }
 
-        public PersonDTOBuilder setTelephone(String telephone) {
-            this.telephone = telephone;
+        public ContractDTOBuilder setAdvanceNumber(Integer advanceNumber) {
+            this.advanceNumber = advanceNumber;
+            return this;
+        }
+
+        public ContractDTOBuilder setDepositNumber(Integer depositNumber) {
+            this.depositNumber = depositNumber;
+            return this;
+        }
+
+        public ContractDTOBuilder setAdvance(BigDecimal advance) {
+            this.advance = advance;
+            return this;
+        }
+
+        public ContractDTOBuilder setDeposit(BigDecimal deposit) {
+            this.deposit = deposit;
+            return this;
+        }
+
+        public ContractDTOBuilder setAmount(BigDecimal amount) {
+            this.amount = amount;
+            return this;
+        }
+
+        public ContractDTOBuilder setPerson(Long person) {
+            this.person = person;
+            return this;
+        }
+
+        public ContractDTOBuilder setProperty(Long property) {
+            this.property = property;
             return this;
         }
 
         public ContractDTO createContractDTO() {
-            return new ContractDTO(id, name, passportNumber, email, telephone);
+            return new ContractDTO(id, startDate, endDate, paymentType, advanceNumber,
+                    advance, depositNumber, deposit, amount, person,
+                    property);
         }
     }
 }

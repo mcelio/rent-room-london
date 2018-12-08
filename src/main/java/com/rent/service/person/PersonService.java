@@ -15,7 +15,7 @@ public interface PersonService {
 
   Iterable<PersonDO> findAll();
 
-  PersonDO create(PersonDO productDO) throws ConstraintsViolationException;
+  PersonDO create(PersonDO personDO) throws ConstraintsViolationException;
 
   void delete(Long id) throws EntityNotFoundException;
 

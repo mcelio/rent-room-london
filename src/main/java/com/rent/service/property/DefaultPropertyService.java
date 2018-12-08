@@ -1,7 +1,6 @@
 package com.rent.service.property;
 
 import com.rent.dataaccessobject.PropertyRepository;
-import com.rent.dataaccessobject.StoreRepository;
 import com.rent.domainobject.PropertyDO;
 import com.rent.exception.ConstraintsViolationException;
 import com.rent.exception.EntityNotFoundException;
@@ -25,8 +24,7 @@ public class DefaultPropertyService implements PropertyService {
 
   private final PropertyRepository propertyRepository;
 
-  public DefaultPropertyService(final PropertyRepository propertyRepository,
-                                final StoreRepository storeRepository) {
+  public DefaultPropertyService(final PropertyRepository propertyRepository) {
     this.propertyRepository = propertyRepository;
   }
 

@@ -1,8 +1,6 @@
 package com.rent.search;
 
 import com.rent.domainobject.PropertyDO;
-import com.rent.domainobject.PropertyDO;
-import com.rent.domainobject.StoreDO;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
@@ -26,7 +24,7 @@ public class PropertyDOSpecification implements Specification<PropertyDO> {
                                  CriteriaBuilder builder) {
         String operation = criteria.getOperation();
         String field = criteria.getKey();
-        Join<PropertyDO, StoreDO> storeProperty = root.join("property");
+        Join<PropertyDO, PropertyDO> storeProperty = root.join("property");
         if (STREET1.equals(field)) {
             return builder.like(storeProperty.get(criteria.getKey()), "%" + criteria.getValue() + "%");
         } else if (STREET2.equals(field)) {
