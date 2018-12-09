@@ -27,7 +27,7 @@ import java.util.stream.StreamSupport;
  * <p/>
  */
 @RestController
-@RequestMapping("v1/propertys")
+@RequestMapping("property")
 public class PropertyController {
 
   private final PropertyService propertyService;

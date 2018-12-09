@@ -12,30 +12,26 @@ public class PropertyDTO {
     @JsonIgnore
     private Long id;
 
-    @NotNull(message = "Address Number can not be null!")
-    private String address;
+    @NotNull(message = "Address 1 can not be null!")
+    private String address1;
 
-    @NotNull(message = "Street 1 can not be null!")
-    private String street1;
+    @NotNull(message = "Address 2 can not be null!")
+    private String address2;
 
-    @NotNull(message = "Street 2 can not be null!")
-    private String street2;
-
-    @NotNull(message = "Street 3 can not be null!")
-    private String street3;
+    @NotNull(message = "Address 3 can not be null!")
+    private String address3;
 
     @NotNull(message = "Postcode can not be null!")
     private String postcode;
 
     public PropertyDTO(){}
 
-    public PropertyDTO(Long id, String address, String street1, String street2, String street3,
+    public PropertyDTO(Long id, String address1, String address2, String address3,
                        String postcode){
         this.id = id;
-        this.address = address;
-        this.street1 = street1;
-        this.street2 = street2;
-        this.street3 = street3;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.address3 = address3;
         this.postcode = postcode;
     }
 
@@ -52,36 +48,27 @@ public class PropertyDTO {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getAddress2() {
+        return address2;
+    }
+    public String getAddress3() {
+        return address3;
     }
 
-    public String getStreet1() {
-        return street1;
+    public void setAddress(String address1) {
+        this.address1 = address1;
     }
 
-    public void setStreet1(String street1) {
-        this.street1 = street1;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
-    public String getStreet2() {
-        return street2;
-    }
-
-    public void setStreet2(String street2) {
-        this.street2 = street2;
-    }
-
-    public String getStreet3() {
-        return street3;
-    }
-
-    public void setStreet3(String street3) {
-        this.street3 = street3;
+    public void setAddress3(String address3) {
+        this.address3 = address3;
     }
 
     public String getPostcode() {
@@ -94,10 +81,9 @@ public class PropertyDTO {
 
     public static class PropertyDTOBuilder {
         private Long id;
-        private String address;
-        private String street1;
-        private String street2;
-        private String street3;
+        private String address1;
+        private String address2;
+        private String address3;
         private String postcode;
 
         public PropertyDTOBuilder setId(Long id) {
@@ -105,23 +91,18 @@ public class PropertyDTO {
             return this;
         }
 
-        public PropertyDTOBuilder setAddress(String address) {
-            this.address = address;
+        public PropertyDTOBuilder setAddress1(String address1) {
+            this.address1 = address1;
             return this;
         }
 
-        public PropertyDTOBuilder setStreet1(String street1) {
-            this.street1 = street1;
+        public PropertyDTOBuilder setAddress2(String address2) {
+            this.address2 = address2;
             return this;
         }
 
-        public PropertyDTOBuilder setStreet2(String street2) {
-            this.street3 = street3;
-            return this;
-        }
-
-        public PropertyDTOBuilder setStreet3(String street3) {
-            this.street3 = street3;
+        public PropertyDTOBuilder setAddress3(String address3) {
+            this.address3 = address3;
             return this;
         }
 
@@ -131,7 +112,7 @@ public class PropertyDTO {
         }
 
         public PropertyDTO createPropertyDTO() {
-            return new PropertyDTO(id, address, street1, street2, street3, postcode);
+            return new PropertyDTO(id, address1, address2, address3, postcode);
         }
     }
 }

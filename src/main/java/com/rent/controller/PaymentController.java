@@ -27,7 +27,7 @@ import java.util.stream.StreamSupport;
  * <p/>
  */
 @RestController
-@RequestMapping("v1/payments")
+@RequestMapping("payment")
 public class PaymentController {
 
   private final PaymentService paymentService;

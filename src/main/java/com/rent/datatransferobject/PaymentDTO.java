@@ -1,14 +1,13 @@
 package com.rent.datatransferobject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rent.domainvalue.ChargeType;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentDTO {
@@ -17,8 +16,8 @@ public class PaymentDTO {
     private Long id;
 
     @NotNull(message = "Date can not be null!")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime date = ZonedDateTime.now();
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+    private Date date;
 
     @NotNull(message = "Charge type can not be null!")
     private ChargeType chargeType;
@@ -34,7 +33,7 @@ public class PaymentDTO {
 
     public PaymentDTO(){}
 
-    public PaymentDTO(Long id, ZonedDateTime date, ChargeType chargeType, String description, BigDecimal amount, Long contract){
+    public PaymentDTO(Long id, Date date, ChargeType chargeType, String description, BigDecimal amount, Long contract){
         this.id = id;
         this.date = date;
         this.chargeType = chargeType;
@@ -43,11 +42,11 @@ public class PaymentDTO {
         this.contract = contract;
     }
 
-    public ZonedDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(ZonedDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -100,7 +99,7 @@ public class PaymentDTO {
     public static class PaymentDTOBuilder {
 
         private Long id;
-        private ZonedDateTime date;
+        private Date date;
         private ChargeType chargeType;
         private String description;
         private BigDecimal amount;
@@ -111,7 +110,7 @@ public class PaymentDTO {
             return this;
         }
 
-        public PaymentDTOBuilder setDate(ZonedDateTime date) {
+        public PaymentDTOBuilder setDate(Date date) {
             this.date = date;
             return this;
         }

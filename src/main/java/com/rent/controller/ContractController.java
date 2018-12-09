@@ -27,7 +27,7 @@ import java.util.stream.StreamSupport;
  * <p/>
  */
 @RestController
-@RequestMapping("v1/contracts")
+@RequestMapping("contract")
 public class ContractController {
 
   private final ContractService contractService;

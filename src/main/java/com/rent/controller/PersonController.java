@@ -27,7 +27,7 @@ import java.util.stream.StreamSupport;
  * <p/>
  */
 @RestController
-@RequestMapping("v1/persons")
+@RequestMapping("person")
 public class PersonController {
 
   private final PersonService personService;
@@ -40,7 +40,7 @@ public class PersonController {
 
 
   @GetMapping("/{personId}")
-  public PersonDTO getDriver(@Valid @PathVariable long personId) throws EntityNotFoundException {
+  public PersonDTO getPerson(@Valid @PathVariable long personId) throws EntityNotFoundException {
     return PersonMapper.makePersonDTO(personService.find(personId));
   }
 

@@ -11,18 +11,17 @@ import java.util.stream.Collectors;
 public class PropertyMapper {
 
     public static PropertyDO makePropertyDO(PropertyDTO propertyDTO) {
-        return new PropertyDO(propertyDTO.getAddress(), propertyDTO.getStreet1(),
-                propertyDTO.getStreet2(), propertyDTO.getStreet3(), propertyDTO.getPostcode());
+        return new PropertyDO(propertyDTO.getAddress1(), propertyDTO.getAddress2(),
+                propertyDTO.getAddress3(), propertyDTO.getPostcode());
     }
 
 
     public static PropertyDTO makePropertyDTO(PropertyDO propertyDO) {
         PropertyDTOBuilder propertyDTOBuilder = PropertyDTO.newBuilder()
                 .setId(propertyDO.getId())
-                .setAddress(propertyDO.getAddress())
-                .setStreet1(propertyDO.getStreet1())
-                .setStreet2(propertyDO.getStreet2())
-                .setStreet3(propertyDO.getStreet3())
+                .setAddress1(propertyDO.getAddress1())
+                .setAddress2(propertyDO.getAddress2())
+                .setAddress3(propertyDO.getAddress3())
                 .setPostcode(propertyDO.getPostcode());
 
         return propertyDTOBuilder.createPropertyDTO();

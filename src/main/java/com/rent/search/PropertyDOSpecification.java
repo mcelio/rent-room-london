@@ -7,9 +7,9 @@ import javax.persistence.criteria.*;
 
 public class PropertyDOSpecification implements Specification<PropertyDO> {
 
-    private static final String STREET1 = "street1";
-    private static final String STREET2 = "street2";
-    private static final String STREET3 = "street3";
+    private static final String ADDRESS1 = "address1";
+    private static final String ADDRESS2 = "address2";
+    private static final String ADDRESS3 = "address3";
     private SearchCriteria criteria;
 
 
@@ -25,10 +25,10 @@ public class PropertyDOSpecification implements Specification<PropertyDO> {
         String operation = criteria.getOperation();
         String field = criteria.getKey();
         Join<PropertyDO, PropertyDO> storeProperty = root.join("property");
-        if (STREET1.equals(field)) {
+        if (ADDRESS1.equals(field)) {
             return builder.like(storeProperty.get(criteria.getKey()), "%" + criteria.getValue() + "%");
-        } else if (STREET2.equals(field)) {
-        } else if (STREET3.equals(field)) {
+        } else if (ADDRESS2.equals(field)) {
+        } else if (ADDRESS3.equals(field)) {
         }
         return null;
     }

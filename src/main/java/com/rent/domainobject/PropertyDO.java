@@ -22,20 +22,16 @@ public class PropertyDO {
     private ZonedDateTime dateCreated = ZonedDateTime.now();
 
     @Column(nullable = false)
-    @NotNull(message = "Address can not be null!")
-    private String address;
+    @NotNull(message = "Address 1 can not be null!")
+    private String address1;
 
     @Column(nullable = false)
-    @NotNull(message = "Street1 can not be null!")
-    private String street1;
+    @NotNull(message = "Address 2 can not be null!")
+    private String address2;
 
     @Column(nullable = false)
-    @NotNull(message = "Street2 can not be null!")
-    private String street2;
-
-    @Column(nullable = false)
-    @NotNull(message = "Street3 can not be null!")
-    private String street3;
+    @NotNull(message = "Address 3 can not be null!")
+    private String address3;
 
     @Column(nullable = false)
     @NotNull(message = "Postcode can not be null!")
@@ -48,11 +44,10 @@ public class PropertyDO {
     }
 
 
-    public PropertyDO(String address, String street1, String street2, String street3, String postcode) {
-        this.address = address;
-        this.street1 = street1;
-        this.street2 = street2;
-        this.street3 = street3;
+    public PropertyDO(String address1, String address2, String address3, String postcode) {
+        this.address1 = address1;
+        this.address2 = address2;
+        this.address3 = address3;
         this.postcode = postcode;
     }
 
@@ -72,36 +67,28 @@ public class PropertyDO {
         this.dateCreated = dateCreated;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public String getAddress2() {
+        return address2;
     }
 
-    public String getStreet1() {
-        return street1;
+    public String getAddress3() {
+        return address3;
     }
 
-    public void setStreet1(String street1) {
-        this.street1 = street1;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    public String getStreet2() {
-        return street2;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
-    public void setStreet2(String street2) {
-        this.street2 = street2;
-    }
-
-    public String getStreet3() {
-        return street3;
-    }
-
-    public void setStreet3(String street3) {
-        this.street3 = street3;
+    public void setAddress3(String address3) {
+        this.address3 = address3;
     }
 
     public String getPostcode() {

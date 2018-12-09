@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Entity
 @Table(
@@ -19,8 +19,7 @@ public class PaymentDO {
     private Long id;
 
     @Column(nullable = false)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime dateCreated = ZonedDateTime.now();
+    private Date dateCreated;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -46,7 +45,7 @@ public class PaymentDO {
     public PaymentDO(){}
 
 
-    public PaymentDO(ZonedDateTime dateCreated, ChargeType chargeType, String description, BigDecimal amount, ContractDO contract){
+    public PaymentDO(Date dateCreated, ChargeType chargeType, String description, BigDecimal amount, ContractDO contract){
         this.dateCreated = dateCreated;
         this.chargeType = chargeType;
         this.description = description;
@@ -62,11 +61,11 @@ public class PaymentDO {
         this.id = id;
     }
 
-    public ZonedDateTime getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(ZonedDateTime dateCreated) {
+    public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
 
